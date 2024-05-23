@@ -6,8 +6,12 @@
 The latest stable version in npm is always a safe bet.
 
 ```sh
-$ npm install sails-forcedotcom
+$ npm install waterline-forcedotcom
 ```
+
+[![NPM](https://nodei.co/npm/waterline-forcedotcom.png?downloads=true&stars=true)](https://nodei.co/npm/waterline-forcedotcom/)
+
+
 
 ### Where is the documentation?
 + Documentation for this module is in the README.md file.
