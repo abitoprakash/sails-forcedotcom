@@ -5,7 +5,8 @@
   "main": "./lib/adapter.js",
   "scripts": {
     "start": "./node_modules/.bin/sails lift",
-    "test": "node test/integration/runner -R spec -b"
+    "test": "node test/integration/runner -R spec -b",
+    "test:unit": "mocha test/unit/**/*.test.js -R spec"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "waterline-adapter-tests": "~0.10.0",
     "mocha": "*",
+    "chai": "^4.4.0",
     "captains-log": "^2.0.1"
   },
   "waterlineAdapter": {
