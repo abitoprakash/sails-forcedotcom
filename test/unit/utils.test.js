@@ -1,5 +1,3 @@
-// JavaScript
-
 const { expect } = require('chai');
 const { SfDate } = require('jsforce');
 const { parseClause, parseSortClause } = require('../../lib/utils');
