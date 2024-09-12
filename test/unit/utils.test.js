@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { SfDate } = require('jsforce');
-const { parseClause, parseSortClause } = require('../../lib/utils');
+const { parseClause, parseSortClause, getSelectFields } = require('../../lib/utils');
 
 const MOCK_COLLECTION = {
   definition: {
@@ -124,4 +124,23 @@ describe('Utils', function () {
       expect(result.$and[1].$or[1].updatedAt.$lte).to.be.an.instanceOf(SfDate);
     });
   });
+
+  describe('getSelectFields', function () {
+    it('should return nothing if no select fields and collection is provided', function () {
+      const result = getSelectFields();
+      expect(result).to.be.undefined;
+    });
+
+    it('should return select fields if provided', function () {
+      const querySelect = ['name', 'age'];
+      const result = getSelectFields(querySelect, MOCK_COLLECTION);
+      expect(result).to.deep.equal(['name', 'age']);
+  });
+
+  it('Should return attributes if no select fields provided', function () {
+    const querySelect = [];
+    const result = getSelectFields(querySelect, MOCK_COLLECTION);
+    expect(result).to.deep.equal(['name', 'age', 'createdDate', 'updatedAt']);
+  });
+});
 });
